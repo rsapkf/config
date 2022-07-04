@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Firefox Developer 
+GenericName=Firefox Developer Edition
+Exec=/opt/firefox_dev/firefox/firefox
+Terminal=false
+Icon=/opt/firefox_dev/firefox/browser/chrome/icons/default/default128.png
+Type=Application
+Categories=Application;Network;X-Developer;
+Comment=Firefox Developer Edition Web Browser.

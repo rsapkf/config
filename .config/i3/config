@@ -1,0 +1,244 @@
+set $mod Mod1
+
+# font
+font pango:Source Code Pro 11
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal(Alacritty by default)
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+v exec rxvt-unicode
+bindsym $mod+Shift+i exec st 
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# launch dmenu (Dracula)
+# bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+
+# launch rofi
+bindsym $mod+d exec --no-startup-id rofi -show drun
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+# bindsym $mod+d focus child
+
+# Scrachpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# label workspaces
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1 
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3 
+bindsym $mod+4 workspace $workspace4 
+bindsym $mod+5 workspace $workspace5 
+bindsym $mod+6 workspace $workspace6 
+bindsym $mod+7 workspace $workspace7 
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9 
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# assign programs to specific workspaces 
+# assign [class="Firefox Developer Edition"] $workspace2
+assign [class="Firefox Developer Edition" instance="Places"] $workspace3
+# assign [class="Firefox"] $workspace2
+# assign [class="Tor Browser"] $workspace2
+assign [class="Chromium-browser"] $workspace3
+assign [class="Brave-browser"] $workspace3
+assign [class="qutebrowser"] $workspace3
+assign [class="jetbrains-idea-ce"] $workspace4
+# assign [class="Code"] $workspace4
+assign [class="VSCodium"] $workspace4
+assign [class="Thunderbird"] $workspace6
+assign [class="Zathura"] $workspace7
+assign [class="calibre"] $workspace7
+assign [class="Evince"] $workspace7
+assign [class="vlc"] $workspace8
+assign [class="qBittorrent"] $workspace9
+assign [class="Transmission-gtk"] $workspace9
+assign [class="obs"] $workspace10
+assign [class="Standard Notes"] $workspace10
+assign [class="Joplin"] $workspace10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize
+bindsym $mod+r mode "resize"
+
+# launch polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Dracula Theme
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
+# i3bar (Switched to polybar)
+# bar {
+    # status_command i3blocks -c ~/.config/i3/i3blocks.conf 
+    # position top
+    # font pango:monospace, Icons 11 
+    # colors {
+    # background #282A36
+    # statusline #F8F8F2
+    # separator  #44475A
+
+    # focused_workspace  #44475A #44475A #F8F8F2
+    # active_workspace   #282A36 #44475A #F8F8F2
+    # inactive_workspace #282A36 #282A36 #BFBFBF
+    # urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    # binding_mode       #FF5555 #FF5555 #F8F8F2
+    # }
+# }
+
+# i3lock (Dracula Theme)
+# bindsym $mod+shift+x exec i3lock -t -i ~/path/to/wallpaper.png
+bindsym $mod+shift+x exec i3lock --color 252833
+
+# PulseAudio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# amixer
+# bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+# bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Wallpaper (Switched to Nitrogen)
+exec --no-startup-id nitrogen --restore
+
+# Hacky Workaround for Touchpad (Not needed anymore: https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/)
+# exec --no-startup-id xinput set-prop 11 289 1
+
+# Automatically start applications on i3 startup
+exec alacritty
+
+# Composite Manager (Compton)
+exec compton -b --config /home/rspk/.config/compton/compton.conf
+
+# i3-gaps
+for_window [class=".*"] border pixel 1
+gaps inner 10
+gaps outer -4
+

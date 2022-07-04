@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open terminal here</name>
+	<unique-id>1625331972872006-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description></description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Search files recursively</name>
+	<unique-id>1631930395814295-1</unique-id>
+	<command>catfish %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Extract here (bzip2)</name>
+	<unique-id>1631940575837639-1</unique-id>
+	<command>tar xjf %n</command>
+	<description></description>
+	<patterns>*.tar.bz2;*.tbz2</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Extract here (zip)</name>
+	<unique-id>1631940603971859-2</unique-id>
+	<command>unzip %f</command>
+	<description></description>
+	<patterns>*.zip</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Create tar.gz from folder</name>
+	<unique-id>1631940661409256-3</unique-id>
+	<command>tar czvf %n.tar.gz %n</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Edit as root</name>
+	<unique-id>1631940696343948-4</unique-id>
+	<command>gksu nvim %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Compare</name>
+	<unique-id>1631940750080495-5</unique-id>
+	<command>meld %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
+</actions>

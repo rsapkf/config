@@ -1,0 +1,32 @@
+body {
+    background-color: #292d3e !important;
+    color: #eee !important;
+}
+
+#header {
+
+    background-color: #292d3e !important;
+    clear: both;
+    color: #BD93F9 !important;
+
+}
+#menu {
+    clear: both;
+    color: #069;
+    overflow: hidden;
+    background-color: #17a;
+    padding: 0.7ex;
+    border: 0px !important;
+}
+
+a {
+	color: #BD93F9 !important;
+}
+
+#header a {
+	color: #BD93F9 !important;
+}
+
+#menu a {
+	color: #F8F8F2 !important;
+}
