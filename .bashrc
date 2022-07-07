@@ -107,33 +107,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Aliases
+set -o vi
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-# vi mode for bash
-set -o vi
-
-# Starship (https://github.com/starship/starship)
-eval "$(starship init bash)"
-
-# Broot
-# source /home/rspk/.config/broot/launcher/bash/br
-
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Set vim as manpage viewer(https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix)
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
-
-# Disable history logging for jrnl
-HISTIGNORE="$HISTIGNORE:jrnl *"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # load nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # load nvm bash_completion

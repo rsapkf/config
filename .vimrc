@@ -11,6 +11,8 @@ set relativenumber
 set clipboard^=unnamedplus
 set mouse=a
 set ruler
+set hidden
+set background=dark
 
 set ignorecase
 set smartcase
@@ -23,6 +25,3 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
-set background=dark
-colorscheme desert

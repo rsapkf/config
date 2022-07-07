@@ -49,13 +49,8 @@ I sparsely use these tools now. The config files are here for reference:
 - [Polybar](https://github.com/polybar/polybar) - Status bar
 - [i3blocks](https://github.com/vivien/i3blocks) - Status bar
 - [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) - Terminal emulator
-- [Termite](https://github.com/thestinger/termite) - Terminal emulator
+- [Termite](https://github.com/thestinger/termite) - Terminal emulator `deprecated`
 
 ## Managing dotfiles
 
 Currently, I use a [bare git repository](https://news.ycombinator.com/item?id=11070797) in my home directory to track my dotfiles (detailed guide [here](https://www.atlassian.com/git/tutorials/dotfiles)). In the past I used [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to do so.
-
-## TODO
-
-- Setup/Install script
-- Switch to vim-packages

@@ -1,136 +1,24 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Added for making pip3/pipenv work
 export PATH="${HOME}/.local/bin:$PATH"
-
-# Added for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-export ZSH="/home/rspk/.oh-my-zsh"
-
-# Adds `~/.local/bin` to $PATH
-# export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
-# PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 export PATH="${HOME}/bin:$PATH"
-
-# yarn
 export PATH="$(yarn global bin):$PATH"
+export PATH="$HOME/gems/bin:$PATH"
+export GEM_HOME="$HOME/gems"
 
-# poetry
-fpath+=~/.zfunc
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="agnoster"
-ZSH_THEME="dracula"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract ansible archlinux debian common-aliases dnf git-prompt gitignore nmap web-search yarn npm)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 source $HOME/.aliases
 
-# Neofetch on startup
-# neofetch --backend off # --size 315px 
-
-# vi mode in zsh shell
+# vi mode
 bindkey -v
 
-# Backward reverse search in zsh (not necessary with fzf)
-# bindkey '^R' history-incremental-search-backward
+# Starship prompt
+eval "$(starship init zsh)"
 
-# Starship (https://github.com/starship/starship)
-# eval "$(starship init zsh)"
+# Case-insensitive completion
+autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 export VISUAL=/usr/bin/nvim
 export EDITOR="$VISUAL"
-
-# Broot 
-# source /home/rspk/.config/broot/launcher/bash/br
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -149,10 +37,6 @@ export FZF_ALT_C_COMMAND="fd -t d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # export FZF_TMUX=1
 
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-
 # View colored man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -162,14 +46,20 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-# Set vim as manpage viewer (https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix)
-# export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    # vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    # -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    # -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
-
-# Disable history logging for jrnl
-setopt HIST_IGNORE_SPACE
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt autocd                   # Allow changing directories without `cd`
+setopt append_history           # Do not overwrite history
+setopt extended_history         # Also record time and duration of commands.
+setopt share_history            # Share history between multiple shells
+setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
+setopt hist_find_no_dups        # Do not display duplicates during searches.
+setopt hist_ignore_dups         # Ignore consecutive duplicates.
+setopt hist_ignore_all_dups     # Remember only one unique copy of the command.
+setopt hist_reduce_blanks       # Remove superfluous blanks.
+setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 
 # curl wttr.in
 w () {
@@ -180,11 +70,6 @@ w () {
 scr () {
     scrot -d 5 '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Downloads/screenshots'
 }
-
-# nnn
-export NNN_BMS='p:~/src/;d:~/docs/;D:~/Downloads/'
-export NNN_TRASH=2
-export NNN_COLORS="2136"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -211,3 +96,88 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Extract compressed files
+extract() {
+  setopt localoptions noautopushd
+
+  if (( $# == 0 )); then
+    cat >&2 <<'EOF'
+Usage: extract [-option] [file ...]
+Options:
+    -r, --remove    Remove archive after unpacking.
+EOF
+  fi
+
+  local remove_archive=1
+  if [[ "$1" == "-r" ]] || [[ "$1" == "--remove" ]]; then
+    remove_archive=0
+    shift
+  fi
+
+  local pwd="$PWD"
+  while (( $# > 0 )); do
+    if [[ ! -f "$1" ]]; then
+      echo "extract: '$1' is not a valid file" >&2
+      shift
+      continue
+    fi
+
+    local success=0
+    local extract_dir="${1:t:r}"
+    local file="$1" full_path="${1:A}"
+    case "${file:l}" in
+      (*.tar.gz|*.tgz) (( $+commands[pigz] )) && { pigz -dc "$file" | tar xv } || tar zxvf "$file" ;;
+      (*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$file" ;;
+      (*.tar.xz|*.txz)
+        tar --xz --help &> /dev/null \
+        && tar --xz -xvf "$file" \
+        || xzcat "$file" | tar xvf - ;;
+      (*.tar.zma|*.tlz)
+        tar --lzma --help &> /dev/null \
+        && tar --lzma -xvf "$file" \
+        || lzcat "$file" | tar xvf - ;;
+      (*.tar.zst|*.tzst)
+        tar --zstd --help &> /dev/null \
+        && tar --zstd -xvf "$file" \
+        || zstdcat "$file" | tar xvf - ;;
+      (*.tar) tar xvf "$file" ;;
+      (*.tar.lz) (( $+commands[lzip] )) && tar xvf "$file" ;;
+      (*.tar.lz4) lz4 -c -d "$file" | tar xvf - ;;
+      (*.tar.lrz) (( $+commands[lrzuntar] )) && lrzuntar "$file" ;;
+      (*.gz) (( $+commands[pigz] )) && pigz -dk "$file" || gunzip -k "$file" ;;
+      (*.bz2) bunzip2 "$file" ;;
+      (*.xz) unxz "$file" ;;
+      (*.lrz) (( $+commands[lrunzip] )) && lrunzip "$file" ;;
+      (*.lz4) lz4 -d "$file" ;;
+      (*.lzma) unlzma "$file" ;;
+      (*.z) uncompress "$file" ;;
+      (*.zip|*.war|*.jar|*.ear|*.sublime-package|*.ipa|*.ipsw|*.xpi|*.apk|*.aar|*.whl) unzip "$file" -d "$extract_dir" ;;
+      (*.rar) unrar x -ad "$file" ;;
+      (*.rpm)
+        command mkdir -p "$extract_dir" && builtin cd -q "$extract_dir" \
+        && rpm2cpio "$full_path" | cpio --quiet -id ;;
+      (*.7z) 7za x "$file" ;;
+      (*.deb)
+        command mkdir -p "$extract_dir/control" "$extract_dir/data"
+        builtin cd -q "$extract_dir"; ar vx "$full_path" > /dev/null
+        builtin cd -q control; extract ../control.tar.*
+        builtin cd -q ../data; extract ../data.tar.*
+        builtin cd -q ..; command rm *.tar.* debian-binary ;;
+      (*.zst) unzstd "$file" ;;
+      (*.cab) cabextract -d "$extract_dir" "$file" ;;
+      (*.cpio) cpio -idmvF "$file" ;;
+      (*)
+        echo "extract: '$file' cannot be extracted" >&2
+        success=1 ;;
+    esac
+
+    (( success = success > 0 ? success : $? ))
+    (( success == 0 && remove_archive == 0 )) && rm "$full_path"
+    shift
+
+    # Go back to original working directory in case we ran cd previously
+    builtin cd -q "$pwd"
+  done
+}
+
