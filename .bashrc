@@ -111,4 +111,3 @@ set -o vi
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
-

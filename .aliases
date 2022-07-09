@@ -12,6 +12,8 @@ alias zrc="nvim ~/.zshrc && source ~/.zshrc"
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # ls
 alias ll="ls -alh --color=auto --group-directories-first"
@@ -258,7 +260,7 @@ alias powerlineconfig="cd ~/.config/powerline;ranger"
 
 # Etc.
 alias rgl="cd ~/main/src/rsapkf/42/docs; rg -S "
-alias gh="cd ~/main/src/rsapkf"
+alias pr="cd ~/main/src/rsapkf"
 alias 42="cd ~/main/src/rsapkf/42/;nvim ./"
 alias 73="cd ~/main/src/rsapkf/73/docs;nvim ./"
 alias www="cd ~/main/src/rsapkf/www;nvim ./"

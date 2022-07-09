@@ -5,7 +5,11 @@ export PATH="$(yarn global bin):$PATH"
 export PATH="$HOME/gems/bin:$PATH"
 export GEM_HOME="$HOME/gems"
 
-source $HOME/.aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+source ~/.zshrc_private
 
 # vi mode
 bindkey -v
@@ -16,6 +20,9 @@ eval "$(starship init zsh)"
 # Case-insensitive completion
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Enable searching through history
+bindkey '^R' history-incremental-pattern-search-backward
 
 export VISUAL=/usr/bin/nvim
 export EDITOR="$VISUAL"
@@ -46,20 +53,25 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
+# nnn
+export NNN_BMS='p:~/main/src/;d:~/main/docs/;D:~/Downloads/'
+export NNN_TRASH=2
+export NNN_COLORS="2136"
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt autocd                   # Allow changing directories without `cd`
 setopt append_history           # Do not overwrite history
-setopt extended_history         # Also record time and duration of commands.
+setopt extended_history         # Also record time and duration of commands
 setopt share_history            # Share history between multiple shells
-setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
-setopt hist_find_no_dups        # Do not display duplicates during searches.
-setopt hist_ignore_dups         # Ignore consecutive duplicates.
-setopt hist_ignore_all_dups     # Remember only one unique copy of the command.
-setopt hist_reduce_blanks       # Remove superfluous blanks.
-setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
+setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist
+setopt hist_find_no_dups        # Do not display duplicates during searches
+setopt hist_ignore_dups         # Ignore consecutive duplicates
+setopt hist_ignore_all_dups     # Remember only one unique copy of the command
+setopt hist_reduce_blanks       # Remove superfluous blanks
+setopt hist_save_no_dups        # Omit older commands in favor of newer ones
 
 # curl wttr.in
 w () {
@@ -70,6 +82,11 @@ w () {
 scr () {
     scrot -d 5 '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Downloads/screenshots'
 }
+
+# <C-x><C-e> to fix a command in a text editor
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

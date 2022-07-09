@@ -86,7 +86,7 @@ set cursorline
 " Show the line and column number of cursor position, separated by a comma
 set ruler
 " Always display the status line
-set laststatus=2
+set laststatus=-2
 " Automatically save undo history to an undo file
 set undofile
 " Allow backspacing over indent, line breaks, and the start of insert
@@ -94,6 +94,8 @@ set backspace=indent,eol,start
 " Highlight invisible characters
 set list
 set listchars=tab:▸\ ,eol:¬
+" Read edited files automatically
+set autoread
 
 " Tabs
 " Replace tabs with spaces
@@ -117,7 +119,7 @@ set gdefault
 " Highlight matching braces
 set showmatch
 " Stop highlighting the matches
-nnoremap <Leader><space> :noh<CR>
+nnoremap <Leader><Space> :nohlsearch<CR>
 " Enable very magic mode (make every character except a-zA-Z0-9 and '_' have
 " special meaning)
 nnoremap / /\v
@@ -155,9 +157,6 @@ set spelllang=en_us
 " inoremap <Left> <NOP>
 " inoremap <Right> <NOP>
 
-" Disable Escape key
-" inoremap <Esc> <NOP>
-
 " Source config
 nnoremap <Leader>sc :source $MYVIMRC<CR>
 " Edit config in a vertical split
@@ -178,6 +177,12 @@ vnoremap <Leader>p "_dP
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+" <Esc> in terminal mode to enter normal mode
+" if has('nvim')
+  " tnoremap <Esc> <C-\><C-n>
+  " tnoremap <C-v><Esc> <Esc>
+" endif
+
 " Strip trailing whitespaces in the file
 nnoremap <Leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -194,6 +199,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" if has('nvim')
+  " tnoremap <C-h> <c-\><c-n><c-w>h
+  " tnoremap <C-j> <c-\><c-n><c-w>j
+  " tnoremap <C-k> <c-\><c-n><c-w>k
+  " tnoremap <C-l> <c-\><c-n><c-w>l
+" endif
 " Resize splits
 nnoremap <silent> <C-Left> :vertical resize +5<CR>
 nnoremap <silent> <C-Right> :vertical resize -5<CR>
@@ -222,8 +233,8 @@ noremap <Leader>0 :tablast<CR>
 noremap <Leader>i ggg?G
 
 " Uppercase current word
-inoremap <C-u> <Esc>gUiwi
-nnoremap <C-u> gUiw
+inoremap <M-u> <Esc>gUiwi
+nnoremap <M-u> gUiw
 
 " Wrap current word in quotes
 nnoremap <Leader>" viw<Esc>a"<Esc>bi"<Esc>lel
@@ -379,5 +390,4 @@ colorscheme ayu
 let ayucolor="dark"   
 
 " Enable italics (must be placed after colorscheme)
-" highlight Comment cterm=italic
-
+" highlight COMMENT cterm=italic

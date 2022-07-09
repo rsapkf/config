@@ -9,7 +9,6 @@ This repository contains my dotfiles for:
 - [tmux](https://github.com/tmux/tmux) - Terminal multiplexer
 - [Bash](https://www.gnu.org/software/bash) - Shell
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell
-- [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - Framework for managing Zsh
 - [sxhkd](https://github.com/baskerville/sxhkd) - Simple X hotkey daemon
 - [Rofi](https://github.com/davatorium/rofi) - Program launcher
 - [Newsboat](https://github.com/newsboat/newsboat) - RSS/Atom feed reader
