@@ -1,19 +1,19 @@
 #! /usr/bin/env sh
 
-# wm independent hotkeys
+#
+# WM independent hotkeys
+#
 
-# terminal emulator
 super + Return
-	urxvt
+	alacritty
 
-# program launcher
 super + @space
 	dmenu_run
 
 super + alt + @space
     rofi -show drun -show-icons
 
-# make sxhkd reload its configuration files:
+# Reload schkd config
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -27,7 +27,7 @@ super + shift + o
 
 # dmenu-manpages
 super + shift + y
-    ~/bin/dmenu-manpages
+    ~/bin/dman
 
 #
 # bspwm hotkeys

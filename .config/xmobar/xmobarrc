@@ -1,5 +1,5 @@
 Config { 
--- appearance
+   -- appearance
      font =         "xft:Mononoki Nerd Font:size=11:antialias=true:hinting=true"
    , bgColor =      "black"
    , fgColor =      "#646464"

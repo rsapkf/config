@@ -3,15 +3,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree' 
 Plug 'scrooloose/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'SirVer/ultisnips'
 Plug 'godlygeek/tabular'
@@ -20,6 +17,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'liuchengxu/vim-which-key'
 Plug 'simnalamburt/vim-mundo'
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 " Ctags
 " Plug 'ludovicchabant/vim-gutentags'
 " Fuzzy search
@@ -100,10 +101,10 @@ set autoread
 " Tabs
 " Replace tabs with spaces
 set expandtab
-" Tabs are 2 spaces long
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+" Tabs are 4 spaces long
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 " Search
 " Ignore case when searching
@@ -172,6 +173,9 @@ vnoremap <Leader>d "_d
 
 " Replace currently selected text with default register without yanking it
 vnoremap <Leader>p "_dP
+
+" Select entire document
+nnoremap <leader>a :%y+<CR>
 
 " Use <Tab> to jump to matching bracket
 nnoremap <Tab> %
@@ -303,9 +307,9 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nnoremap <silent> <Leader>h :call CocActionAsync('doHover')<CR>
 
 " junegunn/fzf.vim
-nnoremap ; :Buffers<CR>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-g> :Rg<CR>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 

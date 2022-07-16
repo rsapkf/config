@@ -1,6 +1,8 @@
 {
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "rust",
     "javascript",
     "typescript",
     "typescriptreact",
@@ -10,5 +12,7 @@
     "graphql",
     "css",
     "markdown"
-  ]
+  ],
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "~/.local/bin/black"
 }

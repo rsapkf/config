@@ -42,11 +42,11 @@ I sparsely use these tools now. The config files are here for reference:
 - [Emacs](https://www.gnu.org/software/emacs) - Text editor
 - [xmonad](https://github.com/xmonad/xmonad) - Window manager
 - [Xmobar](https://github.com/jaor/xmobar) - Status bar for xmonad
+- [bspwm](https://github.com/baskerville/bspwm) - Window manager
 - [i3](https://github.com/i3/i3) - Window manager
 - [i3-gaps](https://github.com/Airblader/i3) - i3 with more features
-- [bspwm](https://github.com/baskerville/bspwm) - Window manager
-- [Polybar](https://github.com/polybar/polybar) - Status bar
 - [i3blocks](https://github.com/vivien/i3blocks) - Status bar
+- [Polybar](https://github.com/polybar/polybar) - Status bar
 - [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) - Terminal emulator
 - [Termite](https://github.com/thestinger/termite) - Terminal emulator `deprecated`
 

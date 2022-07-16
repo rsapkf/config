@@ -83,6 +83,10 @@ scr () {
     scrot -d 5 '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Downloads/screenshots'
 }
 
+command_not_found_handler() { 
+    figlet "lol, $1" 
+  }
+
 # <C-x><C-e> to fix a command in a text editor
 autoload -U edit-command-line
 zle -N edit-command-line

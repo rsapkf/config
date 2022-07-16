@@ -21,12 +21,19 @@ alias la="ls -ah --color=auto --group-directories-first"
 alias ld="ls -lh --color=auto --group-directories-first"
 alias lr="ls -R --color=auto --group-directories-first"
 alias lt="ls -LR --color=auto --group-directories-first"
+alias ltr="tree -Csuh"
 
 # Python
 alias py="python3"
 alias pyserver="python3 -m http.server"
 alias pygrep='grep -nr --include="*.py"'
 alias vact="source ./venv/bin/activate"
+
+# JavaScript
+alias npmi="npm init"
+alias npmg="npm i -g "
+alias npmst="npm start"
+alias npmr="npm run"
 
 # tmux
 alias ta="tmux attach -t"
@@ -186,14 +193,21 @@ alias gas="git rebase --autosquash"
 alias gpf="git push --force"
 
 # Utilities
+alias kppw="keepassxc-cli generate -L 50" # Password
+alias kppp="keepassxc-cli diceware -W 8" # Passphrase
 alias df="df -h"
 alias free="free -h"
 alias today="date +'%Y-%m-%d'"
 alias unix="date '+%s'"
 alias stopw="time (read)" # Stopwatch
+alias pg="ping 8.8.8.8"
+alias lynx='lynx -vikeys -accept_all_cookies'
 
 # Misc
 alias v="nvim"
+alias ff="/opt/firefox_dev/firefox/firefox"
+alias t="~/todo.txt-cli/todo.sh"
+alias yt="youtube-dl --add-metadata -i"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -202,8 +216,6 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v" 
 alias mkd="mkdir -pv" 
-alias yt="youtube-dl --add-metadata -i"
-alias t="~/todo.txt-cli/todo.sh"
 
 # VPN
 alias pvpn="sudo protonvpn c"

@@ -13,7 +13,7 @@ import XMonad.Actions.GridSelect
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-myTerminal      = "st"
+myTerminal      = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -269,22 +269,12 @@ myStartupHook = do
         spawnOnce "compton &"
 
 ------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
 
--- Run xmonad with the settings you specify. No need to modify this.
---
 main = do
   xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
   xmonad $ docks defaults
 
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
 defaults = def {
-      -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
@@ -306,7 +296,7 @@ defaults = def {
         startupHook        = myStartupHook
     }
 
--- | Finally, a copy of the default bindings in simple textual tabular format.
+-- A copy of the default bindings in simple textual tabular format.
 help :: String
 help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "",
