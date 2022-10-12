@@ -34,14 +34,14 @@ static const Rule rules[] = {
 	/* class                        instance    title       tags mask     isfloating   monitor */
     { "firefox-aurora",             NULL,       NULL,       2,       0,           -1 },
     { "Firefox",                    NULL,       NULL,       2,       0,           -1 },
+    { "Zathura",                    NULL,       NULL,       1 << 2,       0,           -1 },
+    { "okular",                     NULL,       NULL,       1 << 2,       0,           -1 },
     { "Tor Browser",                NULL,       NULL,       1 << 2,       0,           -1 },
     { "Brave-browser",              NULL,       NULL,       1 << 2,       0,           -1 },
     { "Chromium-browser",           NULL,       NULL,       1 << 2,       0,           -1 },
     { "qutebrowser",                NULL,       NULL,       1 << 2,       0,           -1 },
     { "VSCodium",                   NULL,       NULL,       1 << 3,       0,           -1 },
     { "Thunderbird",                NULL,       NULL,       1 << 5,       0,           -1 },
-    { "Zathura",                    NULL,       NULL,       1 << 6,       0,           -1 },
-    { "okular",                     NULL,       NULL,       1 << 6,       0,           -1 },
     { "Thunar",                     NULL,       NULL,       1 << 4,       0,           -1 },
     { "qBittorrent",                NULL,       NULL,       1 << 8,       0,           -1 },
     { "obs",                        NULL,       NULL,       1 << 8,       0,           -1 },
@@ -136,7 +136,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { MODKEY,                       XK_q,      quit,           {1} }, 
+    { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
     { 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
     { 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
     { 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },

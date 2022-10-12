@@ -174,8 +174,8 @@ vnoremap <Leader>d "_d
 " Replace currently selected text with default register without yanking it
 vnoremap <Leader>p "_dP
 
-" Select entire document
-nnoremap <leader>a :%y+<CR>
+" Copy entire document
+nnoremap <Leader>a :%y+<CR>
 
 " Use <Tab> to jump to matching bracket
 nnoremap <Tab> %
@@ -305,6 +305,9 @@ nnoremap <Leader>pu :PlugUpdate<CR>
 " neoclide/coc.nvim
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nnoremap <silent> <Leader>h :call CocActionAsync('doHover')<CR>
+" Use <Tab> and <S-Tab> to navigate the completion list:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " junegunn/fzf.vim
 nnoremap <C-p> :GFiles<CR>

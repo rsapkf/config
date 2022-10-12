@@ -23,19 +23,17 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 myModMask       = mod1Mask
 
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
-myNormalBorderColor  = "#4f0077"
+myNormalBorderColor  = "#000000"
 myFocusedBorderColor = "#dddddd"
 
-------------------------------------------------------------------------
----GRID SELECT
-------------------------------------------------------------------------
+-- Grid Select
 
 myColorizer :: Window -> Bool -> X (String, String)
 myColorizer = colorRangeFromClassName
@@ -60,7 +58,6 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 
 
 -- Key bindings.
---
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -137,7 +134,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
                   , ("OBS", "obs")
                   , ("PCManFM", "pcmanfm")
                   , ("Simple Terminal", "st")
-                  , ("Surf Browser",    "surf suckless.org")
+                  , ("Surf Browser", "surf suckless.org")
                   ])
 
     , ((modm .|. shiftMask, xK_u), goToSelected $ mygridConfig myColorizer)
@@ -266,7 +263,6 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
         spawnOnce "nitrogen --restore &"
-        spawnOnce "compton &"
 
 ------------------------------------------------------------------------
 
@@ -275,19 +271,17 @@ main = do
   xmonad $ docks defaults
 
 defaults = def {
+        modMask            = myModMask,
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
         borderWidth        = myBorderWidth,
-        modMask            = myModMask,
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
-
       -- key bindings
         keys               = myKeys,
         mouseBindings      = myMouseBindings,
-
       -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
@@ -295,6 +289,8 @@ defaults = def {
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
+
+------------------------------------------------------------------------
 
 -- A copy of the default bindings in simple textual tabular format.
 help :: String

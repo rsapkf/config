@@ -23,6 +23,12 @@ alias lr="ls -R --color=auto --group-directories-first"
 alias lt="ls -LR --color=auto --group-directories-first"
 alias ltr="tree -Csuh"
 
+# exa
+alias ell="exa -alh --color=auto --group-directories-first"
+alias ela="exa -ah --color=auto --group-directories-first"
+alias eld="exa -lh --color=auto --group-directories-first"
+alias elr="exa -R --color=auto --group-directories-first"
+
 # Python
 alias py="python3"
 alias pyserver="python3 -m http.server"
@@ -95,6 +101,7 @@ alias nmap_ping_scan="nmap -n -sP"
 
 # Git
 alias g="git"
+alias gb="git branch"
 alias gbs="git bisect"
 alias gbsb="git bisect bad"
 alias gbsg="git bisect good"
@@ -195,6 +202,7 @@ alias gpf="git push --force"
 # Utilities
 alias kppw="keepassxc-cli generate -L 50" # Password
 alias kppp="keepassxc-cli diceware -W 8" # Passphrase
+alias pw="cat /dev/urandom | tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~' | fold -w 30 | head -n 1"
 alias df="df -h"
 alias free="free -h"
 alias today="date +'%Y-%m-%d'"
@@ -272,6 +280,7 @@ alias powerlineconfig="cd ~/.config/powerline;ranger"
 
 # Etc.
 alias rgl="cd ~/main/src/rsapkf/42/docs; rg -S "
+alias rgw="cd ~/main/src/rsapkf/www; rg -S "
 alias pr="cd ~/main/src/rsapkf"
 alias 42="cd ~/main/src/rsapkf/42/;nvim ./"
 alias 73="cd ~/main/src/rsapkf/73/docs;nvim ./"

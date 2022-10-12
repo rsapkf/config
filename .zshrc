@@ -72,6 +72,7 @@ setopt hist_ignore_dups         # Ignore consecutive duplicates
 setopt hist_ignore_all_dups     # Remember only one unique copy of the command
 setopt hist_reduce_blanks       # Remove superfluous blanks
 setopt hist_save_no_dups        # Omit older commands in favor of newer ones
+setopt HIST_IGNORE_SPACE        # Prevent commands with leading space from history
 
 # curl wttr.in
 w () {
@@ -84,13 +85,15 @@ scr () {
 }
 
 command_not_found_handler() { 
-    figlet "lol, $1" 
+    cowsay "lol, $1" 
   }
 
 # <C-x><C-e> to fix a command in a text editor
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
