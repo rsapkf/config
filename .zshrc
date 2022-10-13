@@ -14,8 +14,15 @@ source ~/.zshrc_private
 # vi mode
 bindkey -v
 
-# Starship prompt
-eval "$(starship init zsh)"
+# Prompt
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+setopt PROMPT_SUBST
+export PS1='%F{2}%n@%M%f:%F{141}%~%f$(__git_ps1 " (%s)")\$ '
 
 # Case-insensitive completion
 autoload -U compinit && compinit

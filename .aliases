@@ -1,29 +1,34 @@
 # Dotfiles management (https://news.ycombinator.com/item?id=11070798)
 alias config="/usr/bin/git --git-dir=/home/rspk/.cfg/ --work-tree=/home/rspk"
-alias cst="config status"
-alias cc="config commit"
-alias cpp="config push"
-alias cdd="config diff"
+alias cfst="config status"
+alias cfc="config commit"
+alias cfpp="config push"
+alias cfdd="config diff"
 
 # Edit and source .bashrc/.zshrc
 alias brc="nvim ~/.bashrc && source ~/.bashrc"
 alias zrc="nvim ~/.zshrc && source ~/.zshrc"
 
-# Navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
-# ls
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ka="killall"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -v" 
+alias mkd="mkdir -pv" 
+alias df="df -h"
+alias free="free -h"
 alias ll="ls -alh --color=auto --group-directories-first"
 alias la="ls -ah --color=auto --group-directories-first"
 alias ld="ls -lh --color=auto --group-directories-first"
 alias lr="ls -R --color=auto --group-directories-first"
 alias lt="ls -LR --color=auto --group-directories-first"
 alias ltr="tree -Csuh"
-
-# exa
 alias ell="exa -alh --color=auto --group-directories-first"
 alias ela="exa -ah --color=auto --group-directories-first"
 alias eld="exa -lh --color=auto --group-directories-first"
@@ -73,14 +78,14 @@ alias pacupd="sudo pacman -Sy"
 alias upgrade="sudo pacman -Syu"
 
 # apt
-alias agu="sudo apt update"
-alias agi="sudo apt install"
-alias agug="sudo apt upgrade"
-alias aguu="sudo apt update && sudo apt upgrade"
-alias agar="sudo apt autoremove"
-alias agr="sudo apt remove"
-alias agp="sudo apt purge"
-alias agud="sudo apt update && sudo apt dist-upgrade"
+# alias agu="sudo apt update"
+# alias agi="sudo apt install"
+# alias agug="sudo apt upgrade"
+# alias aguu="sudo apt update && sudo apt upgrade"
+# alias agar="sudo apt autoremove"
+# alias agr="sudo apt remove"
+# alias agp="sudo apt purge"
+# alias agud="sudo apt update && sudo apt dist-upgrade"
 
 # nmap
 alias nmap_open_ports="nmap --open"
@@ -200,36 +205,20 @@ alias gas="git rebase --autosquash"
 alias gpf="git push --force"
 
 # Utilities
+alias v="nvim"
 alias kppw="keepassxc-cli generate -L 50" # Password
 alias kppp="keepassxc-cli diceware -W 8" # Passphrase
 alias pw="cat /dev/urandom | tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~' | fold -w 30 | head -n 1"
-alias df="df -h"
-alias free="free -h"
 alias today="date +'%Y-%m-%d'"
 alias unix="date '+%s'"
 alias stopw="time (read)" # Stopwatch
 alias pg="ping 8.8.8.8"
 alias lynx='lynx -vikeys -accept_all_cookies'
-
-# Misc
-alias v="nvim"
+alias pvpn="sudo protonvpn c"
+alias dvpn="sudo protonvpn d"
 alias ff="/opt/firefox_dev/firefox/firefox"
 alias t="~/todo.txt-cli/todo.sh"
 alias yt="youtube-dl --add-metadata -i"
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ka="killall"
-alias cp="cp -iv"
-alias mv="mv -iv"
-alias rm="rm -v" 
-alias mkd="mkdir -pv" 
-
-# VPN
-alias pvpn="sudo protonvpn c"
-alias dvpn="sudo protonvpn d"
-
-# DNS
 alias dns="sudo nvim /etc/resolv.conf"
 
 # Config files
@@ -242,22 +231,22 @@ alias surfconfig="nvim ~/.suckless/surf-2.0/config.h"
 alias slockconfig="nvim ~/.suckless/slock-1.4/config.h"
 alias sentconfig="nvim ~/.suckless/sent-1/config.h"
 alias tabbedconfig="nvim ~/.suckless/tabbed/config.h"
-
-alias xinitconfig="nvim ~/.xinitrc"
-alias xprofileconfig="nvim ~/.xprofile"
-alias tmuxconfig="nvim ~/.tmux.conf"
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
-alias vimconfig="nvim ~/.vimrc"
-alias urxvtconfig="nvim ~/.Xresources"
-alias urxvtperls="cd /usr/lib/x86_64-linux-gnu/urxvt/perl"
-alias xup="xrdb ~/.Xresources"
-alias alaconfig="nvim ~/.config/alacritty/alacritty.yml"
 alias zshconfig="nvim ~/.zshrc"
 alias bashconfig="nvim ~/.bashrc"
 alias fishconfig="cd ~/.config/fish;ranger"
+alias xinitconfig="nvim ~/.xinitrc"
+alias xprofileconfig="nvim ~/.xprofile"
+alias vimconfig="nvim ~/.vimrc"
+alias nvimconfig="nvim ~/.config/nvim/init.vim"
+# alias emacsconfig
+alias alaconfig="nvim ~/.config/alacritty/alacritty.yml"
+alias tmuxconfig="nvim ~/.tmux.conf"
+alias urxvtconfig="nvim ~/.Xresources"
+alias urxvtperls="cd /usr/lib/x86_64-linux-gnu/urxvt/perl"
+alias xup="xrdb ~/.Xresources"
 alias i3config="nvim ~/.config/i3/config"
-alias polybarconfig="nvim ~/.config/polybar/config"
 alias i3bconfig="nvim ~/.config/i3/i3blocks.conf"
+alias polybarconfig="nvim ~/.config/polybar/config"
 alias xmonadconfig="nvim ~/.xmonad/xmonad.hs"
 alias xmobarconfig="nvim ~/.config/xmobar/xmobarrc"
 alias sxconfig="nvim ~/.config/sxhkd/sxhkdrc"
@@ -276,12 +265,10 @@ alias comptonconfig="nvim ~/.config/compton/compton.conf"
 alias conkyconfig="nvim ~/.config/conky/conky.conf"
 alias brootconfig="nvim ~/.config/broot/conf.toml"
 alias dunstconfig="nvim ~/.config/dunst/dunstrc"
-alias powerlineconfig="cd ~/.config/powerline;ranger"
 
 # Etc.
-alias rgl="cd ~/main/src/rsapkf/42/docs; rg -S "
-alias rgw="cd ~/main/src/rsapkf/www; rg -S "
 alias pr="cd ~/main/src/rsapkf"
-alias 42="cd ~/main/src/rsapkf/42/;nvim ./"
-alias 73="cd ~/main/src/rsapkf/73/docs;nvim ./"
-alias www="cd ~/main/src/rsapkf/www;nvim ./"
+alias rgl="cd ~/main/src/rsapkf/42/docs && rg -S "
+alias rgw="cd ~/main/src/rsapkf/www && rg -S "
+alias 42="cd ~/main/src/rsapkf/42/ && nvim ./"
+alias www="cd ~/main/src/rsapkf/www && nvim ./"
