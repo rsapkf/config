@@ -121,8 +121,7 @@ set gdefault
 set showmatch
 " Stop highlighting the matches
 nnoremap <Leader><Space> :nohlsearch<CR>
-" Enable very magic mode (make every character except a-zA-Z0-9 and '_' have
-" special meaning)
+" Enable very magic mode (make every character except a-zA-Z0-9 and '_' have special meaning)
 nnoremap / /\v
 vnoremap / /\v
 
@@ -291,7 +290,7 @@ autocmd FocusLost * :wa
 " Turn off line wrapping for HTML files
 autocmd BufNewFile,BufRead *.html setlocal nowrap
 
-" Operator-pending mappings
+" --- Operator-pending mappings ---
 " Change text in next parenthesis
 onoremap in( :<C-u>normal! f(vi(<CR>
 " Change text in previous parenthesis

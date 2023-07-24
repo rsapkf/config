@@ -3,5 +3,4 @@
 sxhkd &
 compton &
 dunst &
-unclutter &
 nitrogen --restore &

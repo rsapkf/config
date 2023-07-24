@@ -1,6 +1,3 @@
-auto-reload no
-browser "/opt/firefox_dev/firefox/firefox %u"
-
 bind-key j down
 bind-key k up
 bind-key j next articlelist
@@ -18,7 +15,13 @@ bind-key n next-unread
 bind-key N prev-unread
 bind-key D pb-download
 bind-key U show-urls
-reload-threads 101
+
+browser "/opt/firefox_dev/firefox/firefox %u"
+auto-reload no
+reload-only-visible-feeds yes 
+reload-threads 100
+download-timeout 10
+prepopulate-query-feeds yes
 
 color listnormal cyan default
 color listfocus black yellow standout bold

@@ -1,3 +1,6 @@
+export VISUAL=/usr/bin/nvim
+export EDITOR="$VISUAL"
+
 export PATH="${HOME}/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="${HOME}/bin:$PATH"
@@ -5,14 +8,13 @@ export PATH="$(yarn global bin):$PATH"
 export PATH="$HOME/gems/bin:$PATH"
 export GEM_HOME="$HOME/gems"
 
+source ~/.zshrc_private
+
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-source ~/.zshrc_private
-
-# vi mode
-bindkey -v
+bindkey -v # vi mode
 
 # Prompt
 source ~/.git-prompt.sh
@@ -31,8 +33,67 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
 
-export VISUAL=/usr/bin/nvim
-export EDITOR="$VISUAL"
+setopt AUTOCD # Allow changing directories without `cd`
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt APPEND_HISTORY           # Do not overwrite history
+setopt EXTENDED_HISTORY         # Also record time and duration of commands
+setopt SHARE_HISTORY            # Share history between multiple shells
+setopt HIST_EXPIRE_DUPS_FIRST   # Clear duplicates when trimming internal hist
+setopt HIST_FIND_NO_DUPS        # Do not display duplicates during searches
+setopt HIST_IGNORE_DUPS         # Ignore consecutive duplicates
+setopt HIST_IGNORE_ALL_DUPS     # Remember only one unique copy of the command
+setopt HIST_REDUCE_BLANKS       # Remove superfluous blanks
+setopt HIST_SAVE_NO_DUPS        # Omit older commands in favor of newer ones
+setopt HIST_IGNORE_SPACE        # Prevent commands with leading space from history
+
+# View colored man pages
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# curl wttr.in
+w () {
+    (IFS=+; curl wttr.in/"$*";);
+  }
+
+# scrot
+scr () {
+    scrot -d 5 '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Downloads'
+}
+
+# Countdown (Usage: cdown 30)
+cdown () {
+    n=$1
+    while [[ $((--n)) > 0 ]]
+    do
+        echo "$n" && sleep 1
+    done
+}
+
+command_not_found_handler() { 
+    cowsay "lol, $1" 
+}
+
+# <C-x><C-e> to fix a command in a text editor
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
+# https://github.com/zsh-users/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# nnn
+export NNN_BMS='p:~/main/src/;d:~/main/docs/;D:~/Downloads/'
+export NNN_TRASH=2
+export NNN_COLORS="2136"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -50,57 +111,6 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 export FZF_ALT_C_COMMAND="fd -t d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # export FZF_TMUX=1
-
-# View colored man pages
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-# nnn
-export NNN_BMS='p:~/main/src/;d:~/main/docs/;D:~/Downloads/'
-export NNN_TRASH=2
-export NNN_COLORS="2136"
-
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt autocd                   # Allow changing directories without `cd`
-setopt append_history           # Do not overwrite history
-setopt extended_history         # Also record time and duration of commands
-setopt share_history            # Share history between multiple shells
-setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist
-setopt hist_find_no_dups        # Do not display duplicates during searches
-setopt hist_ignore_dups         # Ignore consecutive duplicates
-setopt hist_ignore_all_dups     # Remember only one unique copy of the command
-setopt hist_reduce_blanks       # Remove superfluous blanks
-setopt hist_save_no_dups        # Omit older commands in favor of newer ones
-setopt HIST_IGNORE_SPACE        # Prevent commands with leading space from history
-
-# curl wttr.in
-w () {
-    ( IFS=+; curl wttr.in/"$*";);
-  }
-
-# scrot
-scr () {
-    scrot -d 5 '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Downloads/screenshots'
-}
-
-command_not_found_handler() { 
-    cowsay "lol, $1" 
-  }
-
-# <C-x><C-e> to fix a command in a text editor
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^x^e' edit-command-line
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

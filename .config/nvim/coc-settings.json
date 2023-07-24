@@ -11,10 +11,9 @@
     "typescript.tsx",
     "graphql",
     "css",
-    "markdown"
+    "scss",
+    "html"
   ],
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.local/bin/black"
 }
