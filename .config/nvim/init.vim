@@ -34,7 +34,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
-Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 " Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -53,11 +52,19 @@ inoremap jk <ESC>
 " Set nvim as man page viewer
 " let $PAGER=''
 
+" Enabling filetype support provides filetype-specific indenting,
+" syntax highlighting, omni-completion and other useful settings.
+filetype plugin indent on
+" Switch syntax highlighting on
+syntax on
+
+" `matchit.vim` is built-in so let's enable it!
+" Hit `%` on `if` to jump to `else`.
+runtime macros/matchit.vim
+
 " --- Options ---
 " Set the character encoding
 set encoding=utf-8
-" Switch syntax highlighting on
-syntax on
 " Display a ruler after 80 characters in each line
 set colorcolumn=80
 " Show the line number in front of each line
@@ -165,6 +172,10 @@ nnoremap <Leader>ec :vsplit $MYVIMRC<CR>
 " Enable movement by screen line instead of line numbers
 nnoremap j gj
 nnoremap k gk
+
+" Don't lose selection when shifting sidewards
+xnoremap < <gv
+xnoremap > >gv
 
 " Delete without yanking
 nnoremap <Leader>d "_d
